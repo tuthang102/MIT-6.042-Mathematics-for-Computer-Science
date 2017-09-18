@@ -1,0 +1,73 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts}
+\usepackage[margin=0.5in, paperwidth=8.5in, paper height=11in]
+{geometry}
+
+\begin{document}
+\title{\textbf{Solutions to Problem Set 1 (6.042J)}}
+\author{Thang Tran}
+\date{\today}
+\maketitle
+\section*{Problem 1}
+
+Assume that $\log_4{6}=\frac{m}{n}$ is rational. We have:
+\begin{eqnarray}
+4^{\frac{m}{n}}&=&6\\
+(4^{\frac{m}{n}})^n&=&6^n \\
+4^m&=&6^n \\
+(2\times2)^m&=&(2\times3)^n
+\end{eqnarray}
+Divide both sides by $2^n$:
+\begin{eqnarray}
+\frac{2^{2m}}{2^n}=3^n \\
+2^{2m-n} = 3^n 
+\end{eqnarray}
+The LHS in (6) is even while the RHS is odd. This means $2^{2m-n} \neq 3^n$. Thus, $\log_4{6}$ is irrational by contradiction.
+
+\section*{Problem 2}
+$P(n)::=\{\forall n \in \mathbb{N}|n \leq 3^{\frac{n}{3}}\equiv n^3 \leq 3^n\}$. Counterexample set: $C(n)::=\{ n \in \mathbb{N}|n \neq 3^{\frac{n}{3}}\}$. Calculation of $P(n)$ with $n\leq 4$ gives:
+$$ P(0) ::= 0\leq 1$$
+$$ P(1) ::= 1\leq 3$$
+$$ P(2) ::= 8\leq 9$$
+$$ P(3) ::= 27\leq 27$$
+$$ P(4) ::= 64 \leq 81$$
+By the well-ordering principle, $C$ has a minimum element $c$. This means $c-1$  is a non-negative integer $\geq 4$ and $P(c-1)$ is true
+\begin{eqnarray}
+P(c-1)&::=&(c-1)^3 \leq 3^{c-1} \,\equiv\, 3(c-1)^3 \leq 3^c\\
+P(c)&::=&c^3\leq 3^c \,\equiv\, c^3 \leq 3(c-1)^3  \\
+&\equiv\,& c\leq \sqrt[3]{3}(c-1) 
+\end{eqnarray}
+(9) is always true for $c\geq4$ and $P(n)$ holds for $n\leq4$. This means $C(n)$ is an empty set by contradiction and $P(n)$ holds for every non-negative integer $n$.\\
+ 
+\section*{Problem 3}
+\subsection*{a)}
+Truth table for (\textit{P} IMPLIES \textit{Q}) OR (\textit{Q} IMPLIES \textit{P}):\\
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+\textbf{\textit{P}} & \textbf{\textit{Q}} & \textbf{P} \textbf{IMPLIES \textit{\textit{Q}}} & \textbf{\textit{Q} IMPLIES \textit{P}} & \textbf{(\textit{P} IMPLIES \textit{Q}) OR (\textit{Q} IMPLIES \textit{P})} \\ 
+\hline 
+T & T & T & T & T \\ 
+\hline 
+T & F & F & T & T \\ 
+\hline 
+F & T & T & F & T \\ 
+\hline 
+F & F & T & T & T \\ 
+\hline 
+\end{tabular}\\
+
+The OR operation always gives True value no matter what truth values its variables may have.
+\subsection*{b)}
+$R::=$ (\textit{P} AND \textit{Q}) OR (NOT(\textit{P}) AND NOT(\textit{Q}))
+\subsection*{c)}
+Case 1: P is valid iff NOT(\textit{P}) is not satisfiable\\
+P is valid which means NOT(\textit{P}) is always false. Thus, NOT(\textit{P}) is not satisfiable since it can only produce false in this case.\\
+Case 2: NOT(\textit{P}) is not satisfiable iff P is valid\\
+NOT(\textit{P}) is not satisfiable means it can never be true, so NOT(\textit{P}) is always false which means P is always true.
+\subsection*{d)}
+$P_1,...,P_k$ is consistent iff $P_1,...,P_k$ is satisfiable. We can write S as the following:\\
+$S::= P_1$ AND $P_2$ AND ... AND $P_k$ 
+
+
+\end{document}
